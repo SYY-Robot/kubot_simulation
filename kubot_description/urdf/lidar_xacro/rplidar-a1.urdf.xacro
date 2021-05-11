@@ -12,7 +12,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     <visual>
       <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
       <geometry>
-        <mesh filename="package://kubot_description/meshes/lidar_frame/rplidar-a1/laser_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://kubot_description/meshes/lidar_frame/$(arg lidar)/laser_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <xacro:material_dark_grey/>
     </visual>
