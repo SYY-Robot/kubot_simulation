@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<robot name="kubot" xmlns:xacro="https://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find kubot_description)/urdf/kubot_properties.urdf.xacro"/>
+
+  <xacro:macro 
+  name="lidar" 
+  params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
+  </xacro:macro>
+</robot>

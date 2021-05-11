@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<robot name="kubot_robot" xmlns:xacro="https://ros.org/wiki/xacro">
+
+<xacro:arg name="model" default="" />
+<xacro:arg name="lidar" default="" />
+<xacro:arg name="sensor" default="" />
+
+<!-- Robot in the ground -->
+<xacro:macro name="kubot_robot">
+<!-- Footprint -->
+  <link name="footprint"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="footprint" />
+    <child link="base_link" />
+  </joint>
+
+<!-- Robot Frame -->
+<xacro:include filename="$(find kubot_description)/urdf/model_xacro/$(arg model).urdf.xacro"/>
+<xacro:base></xacro:base>
+    
+<!-- Lidar Frame -->
+<xacro:include filename="$(find kubot_description)/urdf/lidar_xacro/$(arg lidar).urdf.xacro"/>
+<xacro:lidar lidar_joint_xyz="${lidar_joint_xyz}" lidar_joint_rpy="${lidar_joint_rpy}"></xacro:lidar>
+
+<!-- Camera Frame -->
+<xacro:include filename="$(find kubot_description)/urdf/camera_xacro/$(arg sensor).urdf.xacro"/>
+<xacro:camera_sensor camera_joint_xyz="${camera_joint_xyz}" camera_joint_rpy="${camera_joint_rpy}"></xacro:camera_sensor>
+
+</xacro:macro>
+
+</robot>

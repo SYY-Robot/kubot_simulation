@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="kubot_robot" xmlns:xacro="https://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find kubot_description)/urdf/kubot.urdf.xacro" />
+  <xacro:kubot_robot/>
+
+</robot>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<robot name="kubot" xmlns:xacro="https://ros.org/wiki/xacro">
+
+<xacro:include filename="$(find kubot_description)/urdf/kubot_properties.urdf.xacro"/>
+
+    <xacro:macro 
+    name="sensor" 
+    params="frame:=camera_link camera_joint_xyz:=0 camera_joint_rpy:=0">
+    </xacro:macro>
+</robot>

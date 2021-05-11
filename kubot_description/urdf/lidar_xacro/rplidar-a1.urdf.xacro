@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<robot name="kubot_robot" xmlns:xacro="https://ros.org/wiki/xacro">
+
+<xacro:include filename="$(find kubot_description)/urdf/kubot_properties.urdf.xacro"/>
+
+<xacro:macro 
+name="lidar" 
+params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
+
+<!-- Laser Frame -->
+  <link name="${frame}">
+    <visual>
+      <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
+      <geometry>
+        <mesh filename="package://kubot_description/meshes/lidar_frame/rplidar-a1/laser_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <xacro:material_dark_grey/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
+      <geometry>
+        <cylinder length="0.0515" radius="0.055"/>
+      </geometry>
+      <xacro:material_white/>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
+      <mass value="0.179"/>
+      <inertia 
+        ixx="0.001" 
+        ixy="0.0" 
+        ixz="0.0" 
+        iyy="0.001" 
+        iyz="0.0" 
+        izz="0.001" />
+    </inertial>
+  </link>
+
+<!-- Define Joint -->
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="${lidar_joint_xyz}" rpy="${lidar_joint_rpy}" />
+    <parent link="base_link" />
+    <child link="${frame}" />
+  </joint>
+
+<!-- Define Gazebo -->
+  <gazebo reference="${frame}">
+    <material>Gazebo/DarkGrey</material>
+    <sensor type="ray" name="rplidar_a1_sensor">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>1</visualize>
+    <update_rate>5.5</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>0.0</min_angle>
+          <max_angle>6.28319</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.15</min>
+        <max>10</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.004</stddev>
+      </noise>
+     </ray>
+     <plugin name="gazebo_ros_rplidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>scan</topicName>
+        <frameName>${frame}</frameName>
+     </plugin>
+     </sensor>
+  </gazebo>
+
+</xacro:macro>
+
+</robot>
