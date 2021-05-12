@@ -10,7 +10,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
 <!-- Laser Frame -->
   <link name="${frame}">
     <visual>
-        <origin xyz="0 0 0.031" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
             <mesh filename="package://kubot_description/meshes/lidar_frame/$(arg lidar)/laser_link.stl" scale="0.001 0.001 0.001"/>
         </geometry>
@@ -18,15 +18,15 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     </visual>
 
     <collision>
-        <origin xyz="0 0 0.031" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-            <cylinder length="0.0515" radius="0.055"/>
+            <cylinder length="0.0415" radius="0.035"/>
         </geometry>
         <xacro:material_white/>
     </collision>
 
     <inertial>
-      <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
+      <origin xyz="0 0 0" rpy="0 0 3.1415"/>
       <mass value="0.179"/>
       <inertia 
         ixx="0.001" 
@@ -41,7 +41,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
 <!-- Laser 1 Frame -->
   <link name="lidar1_link">
     <visual>
-        <origin xyz="0 0 0.031" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
             <mesh filename="package://kubot_description/meshes/lidar_frame/$(arg lidar)/laser_link.stl" scale="0.001 0.001 0.001"/>
         </geometry>
@@ -49,15 +49,15 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     </visual>
 
     <collision>
-        <origin xyz="0 0 0.031" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-            <cylinder length="0.0515" radius="0.055"/>
+            <cylinder length="0.0415" radius="0.035"/>
         </geometry>
         <xacro:material_white/>
     </collision>
 
     <inertial>
-      <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.179"/>
       <inertia 
         ixx="0.001" 
@@ -72,7 +72,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
 <!-- Laser 2 Frame -->
   <link name="lidar2_link">
     <visual>
-        <origin xyz="0 0 0.031" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
             <mesh filename="package://kubot_description/meshes/lidar_frame/$(arg lidar)/laser_link.stl" scale="0.001 0.001 0.001"/>
         </geometry>
@@ -80,7 +80,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     </visual>
 
     <collision>
-        <origin xyz="0 0 0.031" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
             <cylinder length="0.0515" radius="0.055"/>
         </geometry>
@@ -88,7 +88,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     </collision>
 
     <inertial>
-      <origin xyz="0 0 -0.0241" rpy="0 0 3.1415"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.179"/>
       <inertia 
         ixx="0.001" 
@@ -108,13 +108,13 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
   </joint>
 
   <joint name="lidar1_joint" type="fixed">
-    <origin xyz="0.319 0.208 0.166" rpy="0 0 0.7854" />
+    <origin xyz="0.319 0.208 0.197" rpy="0 0 0.7854" />
     <parent link="base_link" />
     <child link="lidar1_link" />
   </joint>
 
   <joint name="lidar2_joint" type="fixed">
-    <origin xyz="-0.319 -0.208 0.166" rpy="0 0 -2.355" />
+    <origin xyz="-0.319 -0.208 0.197" rpy="0 0 -2.355" />
     <parent link="base_link" />
     <child link="lidar2_link" />
   </joint>
@@ -169,7 +169,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
         </horizontal>
       </scan>
       <range>
-        <min>0.15</min>
+        <min>0.12</min>
         <max>10</max>
         <resolution>0.01</resolution>
       </range>
@@ -202,7 +202,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
         </horizontal>
       </scan>
       <range>
-        <min>0.15</min>
+        <min>0.12</min>
         <max>10</max>
         <resolution>0.01</resolution>
       </range>
