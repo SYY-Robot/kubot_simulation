@@ -373,19 +373,11 @@
 
   </xacro:macro>
 
-  <!-- Lidar Frame a.k.a Lidar Pos-->
-  <xacro:property name="lidar_joint_xyz" value="0 0 0.166"/>
-  <xacro:property name="lidar_joint_rpy" value="0 0 0"/>
+<!-- Lidar Frame a.k.a Lidar Pos-->
+<xacro:property name="lidar_joint_xyz" value="0 0 0.227"/>
+<xacro:property name="lidar_joint_rpy" value="0 0 0"/>
 
-  <!-- Camera a.k.a Camera Pos -->
-  <xacro:property name="camera_pos_rear" value="false"/>
-
-  <xacro:if value="${camera_pos_rear}">
-    <xacro:property name="camera_joint_xyz" value="0.26 0 0.17"/>
-  </xacro:if>
-  <xacro:unless value="${camera_pos_rear}">
-    <xacro:property name="camera_joint_xyz" value="0 0 0"/>
-  </xacro:unless>
-  
-  <xacro:property name="camera_joint_rpy" value="0 0 0"/>
+<!-- Camera a.k.a Camera Pos -->
+<xacro:property name="camera_joint_xyz" value="0.26 0 0.17"/>
+<xacro:property name="camera_joint_rpy" value="0 0 0"/>
 </robot>

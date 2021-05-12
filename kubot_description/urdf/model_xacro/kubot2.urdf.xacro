@@ -200,9 +200,9 @@
 
 </xacro:macro>
 
-  <!-- Lidar Frame a.k.a Lidar Pos-->
-  <xacro:property name="lidar_joint_xyz" value="-0.05 0 0.194"/>
-  <xacro:property name="lidar_joint_rpy" value="0 0 0"/>
+<!-- Lidar Frame a.k.a Lidar Pos-->
+<xacro:property name="lidar_joint_xyz" value="-0.05 0 0.194"/>
+<xacro:property name="lidar_joint_rpy" value="0 0 0"/>
   
 <!-- Camera a.k.a Camera Pos -->
 <xacro:property name="camera_joint_xyz" value="0.1 0 0.14"/>
