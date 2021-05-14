@@ -74,6 +74,28 @@
         <xacro:box_inertial_matrix m="0" a="0" b="0" c="0"/>
     </link>
 
+<!-- Logo Frame a.k.a adornment -->
+    <link name= "logo_frame">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/logo_frame.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <xacro:material_red/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/logo_frame.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <xacro:material_white/>
+        </collision>
+
+        <xacro:box_inertial_matrix m="0" a="0" b="0" c="0"/>
+    </link>
+
+
 <!-- Right Wheel Frame-->
     <link name= "wheel_right_link">
         <visual>
@@ -162,6 +184,11 @@
         <child link="r1_frame"/>
     </joint>
 
+    <joint name="logo_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="logo_frame"/>
+    </joint>
+
     <joint name="wheel_right_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_right_link"/>
@@ -194,6 +221,10 @@
     </gazebo>
 
     <gazebo reference="r1_frame">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="logo_frame">
         <material>Gazebo/Red</material>
     </gazebo>
 
