@@ -6,20 +6,20 @@
 <xacro:property name="base_mass"    value="100"/>          
 <xacro:property name="base_radius"  value="0.755"/>      
 <xacro:property name="base_length"  value="0.675"/>      
-<xacro:property name="base_width"   value="0.190"/>       
+<xacro:property name="base_width"   value="0.200"/>       
 
-<xacro:property name="wheel_mass"    value="2"/>             
-<xacro:property name="wheel_radius"  value="0.0770"/>            
+<xacro:property name="wheel_mass"    value="0.5"/>             
+<xacro:property name="wheel_radius"  value="0.0765"/>            
 <xacro:property name="wheel_length"  value="0.05"/>                
 <xacro:property name="wheel_joint_x" value="0"/>                      
-<xacro:property name="wheel_joint_y" value="0.275"/>             
+<xacro:property name="wheel_joint_y" value="0.280"/>             
 <xacro:property name="wheel_joint_z" value="0.075"/>           
 
 <xacro:property name="caster_mass"    value="0.1"/>      
 <xacro:property name="caster_radius"  value="0.029"/>        
 <xacro:property name="caster_length"  value="0.05"/>        
 <xacro:property name="caster_joint_x" value="0.268"/>
-<xacro:property name="caster_joint_y" value="0.185"/>
+<xacro:property name="caster_joint_y" value="0.175"/>
 <xacro:property name="caster_joint_z" value="0.028"/>
 
 <xacro:macro name="base">
@@ -51,7 +51,7 @@
             iyz = "0"
             izz="${base_mass*(base_radius*base_radius+base_length*base_length)/12}" /> 
         </inertial>    
-        </link>
+    </link>
 
 <!-- R1 Frame a.k.a adornment -->
     <link name= "r1_frame">
@@ -144,7 +144,7 @@
             <geometry>
                 <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/wheel_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <xacro:material_red/>
+            <xacro:material_black/>
         </visual>
 
         <collision>
@@ -165,7 +165,7 @@
             <geometry>
                 <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/wheel_link.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <xacro:material_red/>
+            <xacro:material_black/>
         </visual>
 
         <collision>
@@ -357,7 +357,7 @@
         <kp>500000.0</kp>
         <kd>1.0</kd>
         <minDepth>0.001</minDepth>
-        <maxVel>0.01</maxVel>
+        <maxVel>1.0</maxVel>
         <fdir1>0 1 0</fdir1>            
         <material>Gazebo/Black</material>
     </gazebo>
@@ -425,7 +425,7 @@
             <wheelSeparation>${wheel_joint_y*2}</wheelSeparation>
             <wheelDiameter>${2*wheel_radius}</wheelDiameter>
             <wheelAcceleration>1</wheelAcceleration>
-            <wheelTorque>10</wheelTorque>
+            <wheelTorque>60</wheelTorque>
             <rosDebugLevel>na</rosDebugLevel>
         </plugin>
     </gazebo>
@@ -434,19 +434,12 @@
 
   </xacro:macro>
 
-  <!-- Lidar Frame a.k.a Lidar Pos-->
-  <xacro:property name="lidar_joint_xyz" value="0.27 0 0.26"/>
-  <xacro:property name="lidar_joint_rpy" value="0 0 0"/>
+<!-- Lidar Frame a.k.a Lidar Pos-->
+<xacro:property name="lidar_joint_xyz" value="0.27 0 0.26"/>
+<xacro:property name="lidar_joint_rpy" value="0 0 0"/>
   
-  <!-- Camera a.k.a Camera Pos -->
-  <xacro:property name="camera_pos_rear" value="false"/>
+<!-- Camera a.k.a Camera Pos -->
+<xacro:property name="camera_joint_xyz" value="0.26 0 0.17"/>
+<xacro:property name="camera_joint_rpy" value="0 0 0"/>
 
-  <xacro:if value="${camera_pos_rear}">
-    <xacro:property name="camera_joint_xyz" value="0.26 0 0.17"/>
-  </xacro:if>
-  <xacro:unless value="${camera_pos_rear}">
-    <xacro:property name="camera_joint_xyz" value="0 0 0"/>
-  </xacro:unless>
-  
-  <xacro:property name="camera_joint_rpy" value="0 0 0"/>
 </robot>
