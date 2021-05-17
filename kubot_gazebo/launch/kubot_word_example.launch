@@ -8,18 +8,21 @@
   <arg name="x_pos" default="0.0"/>
   <arg name="y_pos" default="0.0"/>
   <arg name="z_pos" default="0.0"/>
+  <arg name="example" default="true"/>
 
   <!-- 載入世界 -->
+  <group if="$(arg example)">
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <!-- arg name="world_name" value="$(find rrbot_gazebo)/worlds/rrbot.world"/ -->
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
-  </include>  
-  
-    <!--載入機器模型 -->
+  </include>
+  </group>  
+
+
+  <!--載入機器模型 -->
   <arg name="model" default="$(env KUBOT_MODEL)" doc="model type [kubot2, wagv, aider ,neuronbot2 ,galiray2]"/>
   <arg name="lidar" default="$(env KUBOT_LIDAR)" doc="model type [non-lidar, rplidar-a1, rplidar-a2, rplidar-a3, rplidar-s1, xtion, kinectV2, astra,, d435i, sick-tim551, hokuyo-123, two-rplidar-a2 ]"/>
   <arg name="sensor" default="$(env KUBOT_3DSENSOR)" doc="model type [non-3dsensor, xtion, astra, kinectV2, d435i]"/>
