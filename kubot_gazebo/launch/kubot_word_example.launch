@@ -21,7 +21,6 @@
   </include>
   </group>  
 
-
   <!--載入機器模型 -->
   <arg name="model" default="$(env KUBOT_MODEL)" doc="model type [kubot2, wagv, aider ,neuronbot2 ,galiray2]"/>
   <arg name="lidar" default="$(env KUBOT_LIDAR)" doc="model type [non-lidar, rplidar-a1, rplidar-a2, rplidar-a3, rplidar-s1, xtion, kinectV2, astra,, d435i, sick-tim551, hokuyo-123, two-rplidar-a2 ]"/>

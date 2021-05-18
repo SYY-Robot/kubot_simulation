@@ -56,7 +56,7 @@
   <!--put robot model in world-->
   <include file="$(find kubot_gazebo)/launch/kubot_word_example.launch">
     <arg name="example" value="false"/>
-    <arg name="x_pos" value="1"/>
+    <arg name="x_pos" value="2"/>
     <arg name="y_pos" value="1"/>
     <arg name="z_pos" value="0"/>
  </include>
