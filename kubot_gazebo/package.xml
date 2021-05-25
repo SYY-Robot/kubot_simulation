@@ -3,12 +3,12 @@
   <name>kubot_gazebo</name>
   <version>1.0.1</version>
   <description>
-  The kubot_gazebo package
+  The kubot robot gazebo simulation package
   </description>
 
   <author>KUBOT</author>
   <!-- KUBOT ROS  -->
-  <maintainer email="a0103da@gmail.com">YunHong</maintainer>
+  <maintainer email="t105408001@ntut.org.tw">Yun-Hong</maintainer>
 
   <license>Apache-2.0</license>
 
