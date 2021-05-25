@@ -108,13 +108,13 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
   </joint>
 
   <joint name="lidar1_joint" type="fixed">
-    <origin xyz="0.319 0.208 0.197" rpy="0 0 0.7854" />
+    <origin xyz="0.319 0.208 0.197" rpy="0 0 3.92699" />
     <parent link="base_link" />
     <child link="lidar1_link" />
   </joint>
 
   <joint name="lidar2_joint" type="fixed">
-    <origin xyz="-0.319 -0.208 0.197" rpy="0 0 -2.355" />
+    <origin xyz="-0.319 -0.208 0.197" rpy="0 0 -5.4966" />
     <parent link="base_link" />
     <child link="lidar2_link" />
   </joint>
