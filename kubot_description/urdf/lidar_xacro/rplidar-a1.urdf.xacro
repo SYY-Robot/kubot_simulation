@@ -45,7 +45,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     <child link="${frame}" />
   </joint>
 
-<!-- Define Gazebo (ｏ´・ε・｀ｏ) -->
+<!-- Define Gazebo -->
   <gazebo reference="${frame}">
     <material>Gazebo/DarkGrey</material>
     <sensor type="ray" name="rplidar_a1_sensor">
