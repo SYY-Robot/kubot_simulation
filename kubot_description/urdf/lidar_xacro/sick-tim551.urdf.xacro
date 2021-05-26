@@ -51,7 +51,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
     <sensor type="ray" name="sick_tim551_sensor">
     <pose>0 0 0 0 0 0</pose>
     <visualize>1</visualize>
-    <update_rate>10</update_rate>
+    <update_rate>30</update_rate>
     <ray>
       <scan>
         <horizontal>
@@ -72,7 +72,7 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
         <stddev>0.004</stddev>
       </noise>
      </ray>
-     <plugin name="gazebo_ros_rplidar_controller" filename="libgazebo_ros_laser.so">
+     <plugin name="gazebo_ros_sick_tim551_controller" filename="libgazebo_ros_laser.so">
         <topicName>scan</topicName>
         <frameName>${frame}</frameName>
      </plugin>
