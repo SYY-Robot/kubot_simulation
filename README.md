@@ -10,14 +10,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## Introduction
+Start the KUBOT Robot Coordinate conversion([TF](http://wiki.ros.org/tf)), Visual model([RViZ](http://wiki.ros.org/rviz)) and Physical simulation([GAZEBO](http://gazebosim.org/)).
 
 ## Repository Contents
 - [ ] kubot_description
 	- [ ] model.launch
     - [ ] view_model.launch
-            - [ ] robot_model
-            - [ ] lidar
-            - [ ] camera
+    - [ ] robot_model(urdf.xacro,gazebo)
+    - [ ] lidar(urdf.xacro,gazebo)
+    - [ ] camera(urdf.xacro,gazebo)
 - [ ] kubot_gazebo
     - [ ] kubot_word_example.launch
-            - [ ] word
+    - [ ] robot_in_my_worlds.launch
+            - [ ] worlds
