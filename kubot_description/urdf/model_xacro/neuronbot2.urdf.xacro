@@ -9,7 +9,7 @@
 <xacro:property name="base_width"   value="0.200"/>       
 
 <xacro:property name="wheel_mass"    value="0.05"/>             
-<xacro:property name="wheel_radius"  value="0.0425"/>            
+<xacro:property name="wheel_radius"  value="0.042"/>            
 <xacro:property name="wheel_length"  value="0.02"/>                
 <xacro:property name="wheel_joint_x" value="0"/>                      
 <xacro:property name="wheel_joint_y" value="0.125"/>             
@@ -66,9 +66,8 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r1_frame.stl" scale="0.001 0.001 0.001"/>
+                <box size="0.0001 0.0001 0.0001"/>
             </geometry>
-            <xacro:material_white/>
         </collision>
 
         <xacro:box_inertial_matrix m="0" a="0" b="0" c="0"/>
@@ -87,14 +86,12 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/logo_frame.stl" scale="0.001 0.001 0.001"/>
+                <box size="0.0001 0.0001 0.0001"/>
             </geometry>
-            <xacro:material_white/>
         </collision>
 
         <xacro:box_inertial_matrix m="0" a="0" b="0" c="0"/>
     </link>
-
 
 <!-- Right Wheel Frame-->
     <link name= "wheel_right_link">
@@ -107,11 +104,10 @@
         </visual>
 
         <collision>
-              <origin xyz="0 ${-1*wheel_length/2} 0" rpy="${M_PI/2} 0 0"/>
-              <geometry>
-                    <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-              </geometry>
-              <xacro:material_white/>
+            <origin xyz="0 ${-1*wheel_length/2} 0" rpy="${M_PI/2} 0 0"/>
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+            </geometry>
         </collision>
 
         <xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}"/>
@@ -128,11 +124,11 @@
         </visual>
 
         <collision>
-              <origin xyz="0 ${-1*wheel_length/2} 0" rpy="${M_PI/2} 0 0"/>
-              <geometry>
-                    <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-              </geometry>
-              <xacro:material_white/>
+            <origin xyz="0 ${-1*wheel_length/2} 0" rpy="${M_PI/2} 0 0"/>
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+            </geometry>
+            <xacro:material_white/>
         </collision>
 
         <xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}"/>
@@ -245,7 +241,7 @@
         <kp>500000.0</kp>
         <kd>1.0</kd>
         <minDepth>0.001</minDepth>
-        <maxVel>0.01</maxVel>
+        <maxVel>1.0</maxVel>
         <fdir1>0 1 0</fdir1>            
         <material>Gazebo/Red</material>
     </gazebo>
