@@ -17,12 +17,12 @@
 <xacro:property name="wheel_joint_z" value="0.080"/>           
 
 <xacro:property name="caster_mass"    value="0.01"/>      
-<xacro:property name="caster_radius"  value="0.015"/>        
-<xacro:property name="caster_length"  value="0.02"/>
-<xacro:property name="caster_width"   value="0.3"/>                 
+<xacro:property name="caster_radius"  value="0.03"/>        
+<xacro:property name="caster_length"  value="0.03"/>
+<xacro:property name="caster_width"   value="0.03"/>                 
 <xacro:property name="caster_joint_x" value="0.164"/>
 <xacro:property name="caster_joint_y" value="0.0"/>
-<xacro:property name="caster_joint_z" value="0.014"/>
+<xacro:property name="caster_joint_z" value="0.0165"/>
 
 <xacro:macro name="base">
 <!-- Robot Frame  a.k.a base_link -->
@@ -140,7 +140,7 @@
     <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>    
         <geometry>
-            <sphere radius="${caster_radius}"/>    
+                <box size="${caster_radius} ${caster_length} ${caster_width}"/>
         </geometry>
         <xacro:material_white/>
     </visual>
@@ -148,11 +148,21 @@
     <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-                <sphere radius="${caster_radius}" />
+                <box size="${caster_radius} ${caster_length} ${caster_width}"/>
         </geometry>
     </collision>
 
-    <sphere_inertial_matrix  m="${caster_mass}" r="${caster_radius}" />
+    <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="${caster_mass}"/>
+        <inertia 
+        ixx="0.001" 
+        ixy="0.0" 
+        ixz="0.0" 
+        iyy="0.001" 
+        iyz="0.0" 
+        izz="0.001" />
+        </inertial>
     </link>
 
 <!-- Define Joint -->
@@ -169,19 +179,19 @@
     <joint name="wheel_right_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_right_link"/>
-        <origin xyz="0.0 ${-1*wheel_joint_y} ${wheel_joint_z}" rpy="0 0 ${M_PI}"/>
+        <origin xyz="${wheel_joint_x} ${-1*wheel_joint_y} ${wheel_joint_z}" rpy="0 0 ${M_PI}"/>
         <axis xyz="0 -1 0"/>
     </joint>
 
     <joint name="wheel_left_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_left_link"/>
-        <origin xyz="0.0 ${wheel_joint_y} ${wheel_joint_z}" rpy="0 0 0"/>
+        <origin xyz="${wheel_joint_x} ${wheel_joint_y} ${wheel_joint_z}" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint> 
 
     <joint name="rear_caster_joint" type="fixed">
-        <origin xyz="${-1*caster_joint_x} 0 ${caster_joint_z}" rpy="0 0 0"/>
+        <origin xyz="${-1*caster_joint_x} ${caster_joint_y} ${caster_joint_z}" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="rear_caster_link"/>
     </joint>
@@ -228,7 +238,7 @@
         <kd>100.0</kd>
         <minDepth>0</minDepth>
         <maxVel>0.01</maxVel>
-        <fdir1>0 1 0</fdir1>       
+     
         <material>Gazebo/Black</material>
     </gazebo>
 
