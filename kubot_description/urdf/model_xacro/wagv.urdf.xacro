@@ -28,7 +28,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/base_link.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/base_link.stl"/>
             </geometry>
             <xacro:material_light_blue/>
         </visual>
@@ -85,9 +85,9 @@
         </visual>
 
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0.005 0 0.27" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r2_frame.stl"/>
+                <box size="0.5 0.64 0.1"/>
             </geometry>
             <xacro:material_white/>
         </collision>
@@ -439,7 +439,7 @@
 <xacro:property name="lidar_joint_rpy" value="0 0 0"/>
   
 <!-- Camera a.k.a Camera Pos -->
-<xacro:property name="camera_joint_xyz" value="0.26 0 0.17"/>
+<xacro:property name="camera_joint_xyz" value="0.355 0 0.130"/>
 <xacro:property name="camera_joint_rpy" value="0 0 0"/>
 
 </robot>

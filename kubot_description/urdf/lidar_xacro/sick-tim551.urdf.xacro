@@ -57,8 +57,8 @@ params="frame:=laser_link lidar_joint_xyz:=0 lidar_joint_rpy:=0">
         <horizontal>
           <samples>360</samples>
           <resolution>1</resolution>
-          <min_angle>-1.5708</min_angle>
-          <max_angle>1.5708</max_angle>
+          <min_angle>-2.355</min_angle>
+          <max_angle>2.355</max_angle>
         </horizontal>
       </scan>
       <range>

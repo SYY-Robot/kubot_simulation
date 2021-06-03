@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<robot name="kubot_robot" xmlns:xacro="https://ros.org/wiki/xacro">
+
+<xacro:include filename="$(find kubot_description)/urdf/kubot_properties.urdf.xacro"/>
+
+<xacro:macro 
+name="camera_sensor" 
+params="frame:=camera_link  camera_joint_xyz:=0 camera_joint_rpy:=0">
+
+<!-- Camera link -->
+  <link name="${frame}">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+      <mesh filename="package://kubot_description/meshes/camera_frame/$(arg sensor)/camera_link.stl"/>
+      </geometry>
+      <xacro:material_dark_grey/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+      <mesh filename="package://kubot_description/meshes/camera_frame/$(arg sensor)/camera_link.stl"/>
+      </geometry>
+      <xacro:material_white/>
+    </collision>
+
+    <inertial>
+      <mass value="0.162"/>
+      <origin xyz="-0.003 0 ${0.0125-0.0125}" rpy="0 0 0"/>
+      <inertia 
+       ixx="0.00011" 
+        ixy="0.0"
+        ixz="0.0" 
+        iyy="0.00005" 
+        iyz="0.0" 
+        izz="0.00011"/>
+    </inertial>
+  </link>
+
+<!-- Camera joint -->
+  <joint name="base_to_camera" type="fixed">
+    <origin xyz="${camera_joint_xyz}" rpy="${camera_joint_rpy}" />
+    <parent link="base_link"/>
+    <child link="${frame}"/>
+  </joint>
+
+<!-- Define Gazebo -->
+  <gazebo reference="${frame}">
+    <material>Gazebo/Grey</material>
+    <sensor type="camera" name="d435i_camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="logi_c615_camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>kubot/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link_optical</frameName>
+        <hackBaseline>0.0</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0.0</Cx>
+        <Cy>0.0</Cy>
+        <focalLength>0.0</focalLength>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</xacro:macro>
+
+</robot>
