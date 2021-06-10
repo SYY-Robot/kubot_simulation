@@ -31,7 +31,7 @@
     model:=$(arg model)
     lidar:=$(arg lidar)
     sensor:=$(arg sensor)" />
-<!--
+
     <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"  output="screen">
         <param name="use_gui" value="${arg gui}"/>
         <param name="rate" value="20.0"/>
@@ -40,7 +40,7 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"  output="screen">
     	<param name="rate" value="20.0"/>
     </node>
--->
+
     <!-- Arguments of the initial position -->
     <arg name="x_pos" default="0.0"/>
     <arg name="y_pos" default="0.0"/>
