@@ -1,6 +1,6 @@
 # kubot_simulation
 
-[![Apache-2.0 License](https://img.shields.io/badge/license-Apache2.0-purple)](https://opensource.org/licenses/Apache-2.0).
+[![Apache-2.0 License](https://img.shields.io/badge/license-Apache2.0-purple)](https://opensource.org/licenses/Apache-2.0)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![Platform Badge](https://img.shields.io/badge/platform-ROS_Melodic-blue.svg)](http://wiki.ros.org/melodic)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -16,8 +16,8 @@ Start the KUBOT Robot Coordinate conversion([TF](http://wiki.ros.org/tf)), Visua
 It is also possible to perform simulations such as mapping and navigation without real robots.
 
 # Repository Contents
- - [ ] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
-- [ ] model.launch
+ - [x]] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
+   - [x] model.launch
    - [ ] view_model.launch
    - [ ] robot_model (urdf.xacro, gazebo)
    - [ ] lidar (urdf.xacro, gazebo)

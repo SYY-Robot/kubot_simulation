@@ -1,139 +1,121 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="https://ros.org/wiki/xacro">
 
-    <xacro:property name="M_PI" value="3.1415926"/>
+   <xacro:property name="M_PI" value="3.1415926" />
 
-    <xacro:macro name="material_white">
-        <material name="white">
-        <color rgba="1 1 1 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_white">
+      <material name="white">
+         <color rgba="1 1 1 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_grey">
-        <material name="grey">
-        <color rgba="0.5 0.5 0.5 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_grey">
+      <material name="grey">
+         <color rgba="0.5 0.5 0.5 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_black">
-        <material name="black">
-        <color rgba="0.1 0.1 0.1 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_black">
+      <material name="black">
+         <color rgba="0.1 0.1 0.1 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_red">
-        <material name="red">
-        <color rgba="1 0 0 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_red">
+      <material name="red">
+         <color rgba="1 0 0 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_orange">
-        <material name="orange">
-        <color rgba="${255/255} ${108/255} ${10/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_orange">
+      <material name="orange">
+         <color rgba="${255/255} ${108/255} ${10/255} 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_yellow">
-        <material name="yellow">
-        <color rgba="0.96 0.73 0.13 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_yellow">
+      <material name="yellow">
+         <color rgba="0.96 0.73 0.13 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_green">
-        <material name="green">
-        <color rgba="0.0 0.8 0.0 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_green">
+      <material name="green">
+         <color rgba="0.0 0.8 0.0 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_blue">
-        <material name="blue">
-        <color rgba="${108/255} ${185/255} ${233/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_blue">
+      <material name="blue">
+         <color rgba="${108/255} ${185/255} ${233/255} 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_indigo">
-        <material name="indigo">
-        <color rgba="${108/255} ${185/255} ${233/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_indigo">
+      <material name="indigo">
+         <color rgba="${108/255} ${185/255} ${233/255} 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_indigo">
-        <material name="indigo">
-        <color rgba="${0/255} ${255/255} ${255/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_indigo">
+      <material name="indigo">
+         <color rgba="${0/255} ${255/255} ${255/255} 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_purple">
-        <material name="purple">
-        <color rgba="${153/255} ${102/255} ${255/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_purple">
+      <material name="purple">
+         <color rgba="${153/255} ${102/255} ${255/255} 1" />
+      </material>
+   </xacro:macro>
 
 
-    <xacro:macro name="material_light_grey">
-        <material name="light_grey">
-        <color rgba="0.6 0.6 0.6 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_light_grey">
+      <material name="light_grey">
+         <color rgba="0.6 0.6 0.6 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_dark_grey">
-        <material name="dark_grey">
-        <color rgba="0.3 0.3 0.3 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_dark_grey">
+      <material name="dark_grey">
+         <color rgba="0.3 0.3 0.3 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_light_blue">
-        <material name="light_blue">
-        <color rgba="${108/255} ${185/255} ${233/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_light_blue">
+      <material name="light_blue">
+         <color rgba="${108/255} ${185/255} ${233/255} 1" />
+      </material>
+   </xacro:macro>
 
-    <xacro:macro name="material_dark_blue">
-        <material name="dark_blue">
-        <color rgba="${39/255} ${36/255} ${218/255} 1"/>
-        </material>
-    </xacro:macro>
+   <xacro:macro name="material_dark_blue">
+      <material name="dark_blue">
+         <color rgba="${39/255} ${36/255} ${218/255} 1" />
+      </material>
+   </xacro:macro>
 
-    <!-- Macro for inertia matrix -->
-    <xacro:macro name="sphere_inertial_matrix" params="m r">
-        <inertial>
-            <mass value="${m}" />
-            <inertia 
-            ixx="${2*m*r*r/5}" 
-            ixy="0" 
-            ixz="0"
-            iyy="${2*m*r*r/5}"
-            iyz="0" 
-            izz="${2*m*r*r/5}" />
-        </inertial>
-    </xacro:macro>
+   <!-- Macro for inertia matrix -->
+   <xacro:macro name="sphere_inertial_matrix" params="m r">
+      <inertial>
+         <mass value="${m}" />
+         <inertia ixx="${2*m*r*r/5}" ixy="0" ixz="0" iyy="${2*m*r*r/5}" iyz="0" izz="${2*m*r*r/5}" />
+      </inertial>
+   </xacro:macro>
 
-    <xacro:macro name="cylinder_inertial_matrix" params="m r h">
-        <inertial>
-            <mass value="${m}" />
-            <inertia 
-            ixx="${m*(3*r*r+h*h)/12}" 
-            ixy = "0" 
-            ixz = "0"
-            iyy="${m*r*r/2}" 
-            iyz = "0"
-            izz="${m*(3*r*r+h*h)/12}" /> 
-        </inertial>
-    </xacro:macro>
+   <xacro:macro name="cylinder_inertial_matrix" params="m r h">
+      <inertial>
+         <mass value="${m}" />
+         <inertia ixx="${m*(3*r*r+h*h)/12}" ixy="0" ixz="0" iyy="${m*r*r/2}" iyz="0" izz="${m*(3*r*r+h*h)/12}" />
+      </inertial>
+   </xacro:macro>
 
-<!-- a, b,c a.k.a width, height, depth a.k.a x*, y*, z* -->
-    <xacro:macro name="box_inertial_matrix" params="m a b c">
-        <inertial>
-           <origin xyz=" 0 0 ${c/2} " rpy="0 0 0" />
-            <mass value="${m}" />
-            <inertia 
-            ixx="${m*(b*b+c*c)/12}" 
-            ixy = "0" 
-            ixz = "0"
-            iyy="${m*(a*a+c*c)/12}" 
-            iyz = "0"
-            izz="${m*(a*a+b*b)/12}" /> 
-        </inertial>
-    </xacro:macro>
+   <!-- a, b,c a.k.a width, height, depth a.k.a x*, y*, z* -->
+   <xacro:macro name="box_inertial_matrix" params="m a b c">
+      <inertial>
+         <origin xyz=" 0 0 ${c/2} " rpy="0 0 0" />
+         <mass value="${m}" />
+         <inertia ixx="${m*(b*b+c*c)/12}" ixy="0" ixz="0" iyy="${m*(a*a+c*c)/12}" iyz="0" izz="${m*(a*a+b*b)/12}" />
+      </inertial>
+   </xacro:macro>
 
 </robot>

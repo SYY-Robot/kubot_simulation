@@ -1,7 +1,3 @@
 <launch>
-  <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find kubot_description)/rviz/rviz_gazebo.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find kubot_description)/rviz/rviz_gazebo.rviz" />
 </launch>

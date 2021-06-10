@@ -1,7 +1,6 @@
 <launch>
-    <!-- Dynamic obstacle -->
-    <node pkg="kubot_gazebo" type="moving_obstacle" name="moving_obstacle" output="screen" />
-    <node pkg="kubot_gazebo" type="combination_obstacle_1" name="combination_obstacle_1" output="screen" />
-    <node pkg="kubot_gazebo" type="combination_obstacle_2" name="combination_obstacle_2" output="screen" />
-
+	<!-- Dynamic obstacle -->
+	<node pkg="kubot_gazebo" type="moving_obstacle" name="moving_obstacle" output="screen" />
+	<node pkg="kubot_gazebo" type="combination_obstacle_1" name="combination_obstacle_1" output="screen" />
+	<node pkg="kubot_gazebo" type="combination_obstacle_2" name="combination_obstacle_2" output="screen" />
 </launch>
