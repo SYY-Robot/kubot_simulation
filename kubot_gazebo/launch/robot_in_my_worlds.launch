@@ -53,7 +53,7 @@
 	</group>
 
 	<!--put robot model in world-->
-	<include file="$(find kubot_gazebo)/launch/kubot_word_example.launch">
+	<include file="$(find kubot_gazebo)/launch/kubot_empty_world.launch">
 		<arg name="example" value="false" />
 		<arg name="x_pos" value="2" />
 		<arg name="y_pos" value="1" />
