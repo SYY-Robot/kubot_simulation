@@ -1,0 +1,22 @@
+<launch>
+	<env name="GAZEBO_MODEL_PATH" value="$(find neuronbot2_gazebo)/models" />
+
+	<!-- Arguments of the world -->
+	<arg name="paused" default="false" />
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="debug" default="false" />
+	<arg name="level" default="1" />
+
+	<!-- Load the world -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find neuronbot2_gazebo)/worlds/tag.world" />
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="headless" value="$(arg headless)" />
+		<arg name="debug" value="$(arg debug)" />
+	</include>
+
+</launch>
