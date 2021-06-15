@@ -1,52 +1,54 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>kubot_gazebo</name>
-  <version>1.0.1</version>
-  <description>
-  The kubot robot gazebo simulation package
-  </description>
+	<name>kubot_gazebo</name>
+	<version>0.7.3</version>
+	<description>
+		The kubot robot gazebo simulation package.
+	</description>
+	<maintainer email="YunHong.Wang@ShanYangYe.com">Yun Hong</maintainer>
 
-  <author>KUBOT</author>
-  <!-- KUBOT ROS  -->
-  <maintainer email="t105408001@ntut.org.tw">Yun-Hong</maintainer>
+	<license>Apache 2.0</license>
 
-  <license>Apache-2.0</license>
+	<!-- KUBOT ROS  -->
+	<author>KUBOT</author>
+	<author email="t105408001@ntut.org.tw">Yun Hong</author>
+	<author email="TODO@TODO"></author>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>gazebo_ros</build_depend>
-  <build_depend>geometry_msgs</build_depend>
-  <build_depend>nav_msgs</build_depend>
-  <build_depend>robot_state_publisher</build_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>rospy</build_depend>
-  <build_depend>sensor_msgs</build_depend>
-  <build_depend>std_msgs</build_depend>
-  <build_depend>tf2</build_depend>
-  <build_depend>robot_localization</build_depend>
-  <build_export_depend>gazebo_ros</build_export_depend>
-  <build_export_depend>geometry_msgs</build_export_depend>
-  <build_export_depend>nav_msgs</build_export_depend>
-  <build_export_depend>robot_state_publisher</build_export_depend>
-  <build_export_depend>roscpp</build_export_depend>
-  <build_export_depend>rospy</build_export_depend>
-  <build_export_depend>sensor_msgs</build_export_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <build_export_depend>tf2</build_export_depend>
-  <build_export_depend>robot_localization</build_export_depend>
-  <exec_depend>gazebo_ros</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>nav_msgs</exec_depend>
-  <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>roscpp</exec_depend>
-  <exec_depend>rospy</exec_depend>
-  <exec_depend>sensor_msgs</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-  <exec_depend>tf2</exec_depend>
-  <exec_depend>robot_localization</exec_depend>
+	<buildtool_depend>catkin</buildtool_depend>
+	<build_depend>gazebo_ros</build_depend>
+	<build_depend>geometry_msgs</build_depend>
+	<build_depend>nav_msgs</build_depend>
+	<build_depend>robot_state_publisher</build_depend>
+	<build_depend>roscpp</build_depend>
+	<build_depend>rospy</build_depend>
+	<build_depend>sensor_msgs</build_depend>
+	<build_depend>std_msgs</build_depend>
+	<build_depend>tf2</build_depend>
+	<build_depend>robot_localization</build_depend>
+	<build_export_depend>gazebo_ros</build_export_depend>
+	<build_export_depend>geometry_msgs</build_export_depend>
+	<build_export_depend>nav_msgs</build_export_depend>
+	<build_export_depend>robot_state_publisher</build_export_depend>
+	<build_export_depend>roscpp</build_export_depend>
+	<build_export_depend>rospy</build_export_depend>
+	<build_export_depend>sensor_msgs</build_export_depend>
+	<build_export_depend>std_msgs</build_export_depend>
+	<build_export_depend>tf2</build_export_depend>
+	<build_export_depend>robot_localization</build_export_depend>
+	<exec_depend>gazebo_ros</exec_depend>
+	<exec_depend>geometry_msgs</exec_depend>
+	<exec_depend>nav_msgs</exec_depend>
+	<exec_depend>robot_state_publisher</exec_depend>
+	<exec_depend>roscpp</exec_depend>
+	<exec_depend>rospy</exec_depend>
+	<exec_depend>sensor_msgs</exec_depend>
+	<exec_depend>std_msgs</exec_depend>
+	<exec_depend>tf2</exec_depend>
+	<exec_depend>robot_localization</exec_depend>
 
-  <!-- The export tag contains other, unspecified, tags -->
-  <export>
-    <!-- Other tools can request additional information be placed here -->
-    <gazebo_ros gazebo_model_path="kubot_gazebo/models"/> 
-  </export>
+	<!-- The export tag contains other, unspecified, tags -->
+	<export>
+		<!-- Other tools can request additional information be placed here -->
+		<gazebo_ros gazebo_model_path="kubot_gazebo/models"/>
+	</export>
 </package>
