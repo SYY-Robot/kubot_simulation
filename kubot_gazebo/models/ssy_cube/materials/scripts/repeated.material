@@ -1,0 +1,13 @@
+material Signboard/ShaYangYe_Cube
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ../textures/SSY_LOGO.png
+      }
+    }
+  }
+}

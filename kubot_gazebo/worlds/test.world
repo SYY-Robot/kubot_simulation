@@ -9,6 +9,11 @@
 		<include>
 			<uri>model://sun</uri>
 		</include>
+		
+		<include>
+			<uri>model://ssy_cube</uri>
+			<pose>2.51375 -1.50097 0.5 0 -0 0</pose>
+		</include>
 
 		<scene>
 			<shadows>false</shadows>
