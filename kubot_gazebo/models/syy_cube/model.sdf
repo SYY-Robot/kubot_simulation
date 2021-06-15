@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='ssy_cube'>
+  <model name='syy_cube'>
     <link name='link_0'>
       <inertial>
         <mass>1</mass>
@@ -23,7 +23,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ssy_cube/meshes/ssy_cube.dae</uri>
+            <uri>model://syy_cube/meshes/syy_cube.dae</uri>
             <scale>0.2 0.2 0.2</scale>
           </mesh>
         </geometry>
@@ -48,7 +48,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ssy_cube/meshes/ssy_cube.dae</uri>
+            <uri>model://syy_cube/meshes/syy_cube.dae</uri>
             <scale>0.2 0.2 0.2</scale>
           </mesh>
         </geometry>

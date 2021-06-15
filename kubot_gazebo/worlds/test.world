@@ -9,11 +9,6 @@
 		<include>
 			<uri>model://sun</uri>
 		</include>
-		
-		<include>
-			<uri>model://ssy_cube</uri>
-			<pose>2.51375 -1.50097 0.5 0 -0 0</pose>
-		</include>
 
 		<scene>
 			<shadows>false</shadows>
@@ -48,85 +43,25 @@
 			</ode>
 		</physics>
 
-		<model name="cat_world">
+		<model name="kubot_square">
 			<static>1</static>
-			<include>
-				<uri>model://cat</uri>
-			</include>
+    		<include>
+      		<uri>model://kubot_square</uri> 
+    		</include>
 		</model>
-<!--
-      <actor name="animated_box">
-        <link name="link">
-          <visual name="visual">
-            <geometry>
-              <box>
-                <size>.2 .2 .2</size>
-              </box>
-            </geometry>
-          </visual>
-        </link>		
-        <script>
-          <loop>true</loop>
-          <delay_start>0.000000</delay_start>
-          <auto_start>true</auto_start>
-          <trajectory id="0" type="square">
-             <waypoint>
-                <time>0.0</time>
-                <pose>-2 -2 0.2 0 0 0</pose>
-             </waypoint>
-             <waypoint>
-                <time>1.0</time>
-                <pose>-2 -3 0.2 0 0 0</pose>
-             </waypoint>
-             <waypoint>
-                <time>2.0</time>
-                <pose>-3 -3 0.2 0 0 0</pose>
-             </waypoint>
-             <waypoint>
-                <time>3.0</time>
-                <pose>-3 -2 0.2 0 0 0</pose>
-             </waypoint>
-             <waypoint>
-                <time>4.0</time>
-                <pose>-2 -2 0.2 0 0 0</pose>
-             </waypoint>
-          </trajectory>
-        </script>
-      </actor>
--->
-		<actor name="actor">
-			<skin>
-				<filename>walk.dae</filename>
-			</skin>
-			<animation name="walking">
-				<filename>walk.dae</filename>
-				<interpolate_x>true</interpolate_x>
-			</animation>
-			<script>
-				<trajectory id="0" type="walking">
-					<waypoint>
-						<time>0</time>
-						<pose>0 -2 0 0 0 -1.57</pose>
-					</waypoint>
-					<waypoint>
-						<time>4</time>
-						<pose>0 -4 0 0 0 -1.57</pose>
-					</waypoint>
-					<waypoint>
-						<time>4.5</time>
-						<pose>0 -4 0 0 0 1.57</pose>
-					</waypoint>
-					<waypoint>
-						<time>8.5</time>
-						<pose>0 -2 0 0 0 1.57</pose>
-					</waypoint>
-					<waypoint>
-						<time>9</time>
-						<pose>0 -2 0 0 0 -1.57</pose>
-					</waypoint>
-				</trajectory>
-			</script>
-		</actor>
 
+		<model name="syy_cube1">
+    		<include>
+				<uri>model://syy_cube</uri>
+				<pose>1 0 0.2 0 0 0</pose>
+    		</include>
+		</model>
+
+		<model name="syy_plaque">
+    		<include>
+				<uri>model://syy_plaque</uri>
+				<pose>0 3.92 0.9 0 1.5707 1.5707</pose>
+    		</include>
+		</model>
 	</world>
 </sdf>

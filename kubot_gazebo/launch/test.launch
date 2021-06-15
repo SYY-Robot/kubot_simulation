@@ -14,7 +14,6 @@
 		<arg name="world_name" value="$(find kubot_gazebo)/worlds/test.world" />
 	</include>
 
-
 	<!--put robot model in world-->
 	<include file="$(find kubot_gazebo)/launch/kubot_empty_world.launch">
 		<arg name="example" value="false" />
@@ -22,5 +21,4 @@
 		<arg name="y_pos" value="1" />
 		<arg name="z_pos" value="0" />
 	</include>
-
 </launch>

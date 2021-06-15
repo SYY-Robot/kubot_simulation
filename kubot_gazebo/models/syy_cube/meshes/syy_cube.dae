@@ -78,14 +78,14 @@
   <library_effects>
     <effect id="Material-effect">
       <profile_COMMON>
-        <newparam sid="SSY_LOGO_001_png-surface">
+        <newparam sid="SYY_LOGO_001_png-surface">
           <surface type="2D">
-            <init_from>SSY_LOGO_001_png</init_from>
+            <init_from>SYY_LOGO_001_png</init_from>
           </surface>
         </newparam>
-        <newparam sid="SSY_LOGO_001_png-sampler">
+        <newparam sid="SYY_LOGO_001_png-sampler">
           <sampler2D>
-            <source>SSY_LOGO_001_png-surface</source>
+            <source>SYY_LOGO_001_png-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -94,7 +94,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <texture texture="SSY_LOGO_001_png-sampler" texcoord="UVMap"/>
+              <texture texture="SYY_LOGO_001_png-sampler" texcoord="UVMap"/>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -105,8 +105,8 @@
     </effect>
   </library_effects>
   <library_images>
-    <image id="SSY_LOGO_001_png" name="SSY_LOGO_001_png">
-      <init_from>../materials/textures/SSY_LOGO_001.png</init_from>
+    <image id="SYY_LOGO_001_png" name="SYY_LOGO_001_png">
+      <init_from>../materials/textures/SYY_LOGO_001.png</init_from>
     </image>
   </library_images>
   <library_materials>

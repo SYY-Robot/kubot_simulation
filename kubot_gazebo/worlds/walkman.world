@@ -9,7 +9,7 @@
 				<filename>walk.dae</filename>
 			</skin>
 			<animation name="walking">
-				<filename>walk.dae</filename>
+				<filename>pedestrian.dae</filename>
 				<interpolate_x>true</interpolate_x>
 			</animation>
 			<script>

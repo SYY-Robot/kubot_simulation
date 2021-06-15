@@ -1,0 +1,17 @@
+material syy_plaque
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      texture_unit
+      {
+        texture SYY-LOGO-07-01.jpg
+        filtering none none none
+        scale 1.0 1.0
+      }
+    }
+  }
+}
+
