@@ -6,6 +6,7 @@
 	<arg name="headless" default="false" />
 	<arg name="debug" default="false" />
 	<arg name="example" default="true" />
+	<arg name="use_joint_gui" default="false" />
 	<arg name="world_name" default="empty_world" />
 
 	<!-- Load the world -->
@@ -29,10 +30,18 @@
 	<!--Load the robot -->
 	<param name="robot_description" command="$(arg urdf_file) model:=$(arg model) lidar:=$(arg lidar) sensor:=$(arg sensor)" />
 
-	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" output="screen">
-		<param name="use_gui" value="${arg gui}" />
-		<param name="rate" value="20.0" />
-	</node>
+	<group if="$(arg use_joint_gui)">
+		<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" output="screen">
+			<param name="use_gui" value="${arg gui}" />
+			<param name="rate" value="20.0" />
+		</node>
+	</group>
+
+	<group unless="$(arg use_joint_gui)">
+		<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen">
+			<param name="rate" value="20.0" />
+		</node>
+	</group>
 
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
 		<param name="rate" value="20.0" />

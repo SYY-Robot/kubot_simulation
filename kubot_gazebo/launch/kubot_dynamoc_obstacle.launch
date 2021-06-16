@@ -3,4 +3,8 @@
 	<node pkg="kubot_gazebo" type="moving_obstacle" name="moving_obstacle" output="screen" />
 	<node pkg="kubot_gazebo" type="combination_obstacle_1" name="combination_obstacle_1" output="screen" />
 	<node pkg="kubot_gazebo" type="combination_obstacle_2" name="combination_obstacle_2" output="screen" />
+	<node pkg="kubot_gazebo" type="lv2_obstacle_1" name="lv2_obstacle_1" output="screen" />
+	<node pkg="kubot_gazebo" type="lv2_obstacle_2" name="lv2_obstacle_2" output="screen" />
+	<node pkg="kubot_gazebo" type="lv2_obstacle_3" name="lv2_obstacle_3" output="screen" />
+	<node pkg="kubot_gazebo" type="lv2_obstacle_4" name="lv2_obstacle_4" output="screen" />
 </launch>

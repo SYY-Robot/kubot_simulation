@@ -36,7 +36,7 @@ class Combination():
                     obstacle_1.model_name = model.name[i]
                     obstacle_1.pose = model.pose[i]
                     if abs(obstacle_1.pose.position.x - 2) < 0.05 and abs(obstacle_1.pose.position.y - 0) < 0.05:
-                        state = 0
+                    	state = 0
 
                     if state == 0:
                         obstacle_1.pose.position.x -= 0
@@ -49,7 +49,6 @@ class Combination():
                         obstacle_1.pose.position.y -= 0.012
                         if abs(obstacle_1.pose.position.x - 2) < 0.05 and abs(obstacle_1.pose.position.y - 0) < 0.05:
                             state = 0
-
 
                     self.pub_model.publish(obstacle_1)
                     time.sleep(0.1)

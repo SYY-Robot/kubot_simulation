@@ -59,21 +59,36 @@
 			</include>
 		</model>
 
-		<model name='obstacle_1'>
+		<model name='lv2_obstacle_1'>
 			<pose frame=''>2 0 0 0 -0 3.1415</pose>
 			<include>
 				<uri>model://syy_cube</uri>
 			</include>
-			<plugin name="obstacle_1" filename="libobstacle_1.so"/>
+			<plugin name="lv2_obstacle_1" filename="libobstacle_1.so"/>
 		</model>
 
-		<model name="obstacle_2">
+		<model name="lv2_obstacle_2">
 			<pose frame=''>0 2 0 0 -0 -1.5707</pose>
 			<include>
 				<uri>model://syy_cube</uri>
 			</include>
-			<plugin name="obstacle_2" filename="libobstacle_2.so"/>
+			<plugin name="lv2_obstacle_2" filename="libobstacle_2.so"/>
 		</model>
-		
+
+		<model name="lv2_obstacle_3">
+			<pose frame=''>-2 0 0 0 -0 0</pose>
+			<include>
+				<uri>model://syy_cube</uri>
+			</include>
+			<plugin name="lv2_obstacle_3" filename="libobstacle_3.so"/>
+		</model>
+
+		<model name="lv2_obstacle_4">
+			<pose frame=''>0 -2 0 0 -0 1.5707</pose>
+			<include>
+				<uri>model://syy_cube</uri>
+			</include>
+			<plugin name="lv2_obstacle_4" filename="libobstacle_4.so"/>
+		</model>
 	</world>
 </sdf>

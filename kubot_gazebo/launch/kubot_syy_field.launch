@@ -28,8 +28,7 @@
 	<!--Load the robot -->
 	<param name="robot_description" command="$(arg urdf_file) model:=$(arg model) lidar:=$(arg lidar) sensor:=$(arg sensor)" />
 
-	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" output="screen">
-		<param name="use_gui" value="false" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen">
 		<param name="rate" value="20.0" />
 	</node>
 
