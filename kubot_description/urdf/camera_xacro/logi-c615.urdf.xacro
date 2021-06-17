@@ -40,13 +40,13 @@
 		<!-- Define Gazebo -->
 		<gazebo reference="${frame}">
 			<material>Gazebo/Grey</material>
-			<sensor type="camera" name="d435i_camera">
+			<sensor type="camera" name="logi_c615_camera">
 				<update_rate>30.0</update_rate>
 				<camera name="head">
 					<horizontal_fov>1.3962634</horizontal_fov>
 					<image>
-						<width>800</width>
-						<height>800</height>
+						<width>640</width>
+						<height>480</height>
 						<format>R8G8B8</format>
 					</image>
 					<clip>
@@ -65,7 +65,7 @@
 					<cameraName>kubot/camera1</cameraName>
 					<imageTopicName>image_raw</imageTopicName>
 					<cameraInfoTopicName>camera_info</cameraInfoTopicName>
-					<frameName>camera_link_optical</frameName>
+					<frameName>${frame}</frameName>
 					<hackBaseline>0.0</hackBaseline>
 					<distortionK1>0.0</distortionK1>
 					<distortionK2>0.0</distortionK2>
