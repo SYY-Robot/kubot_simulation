@@ -63,7 +63,7 @@
 			<include>
 				<uri>model://syy_cube</uri>
 			</include>
-			<pose>2 0 0.2 0 0 3.1415</pose>			
+			<pose>2 0.5 0.2 0 0 3.1415</pose>			
 		</model>
 
 		<model name="syy_cube2">
@@ -78,7 +78,7 @@
 			<include>
 				<uri>model://Apriltag/Apriltag36_11_00000</uri>
 			</include>
-			<pose frame=''> 2 -1.5 0.2 3.14 -1.57 3.14</pose>
+			<pose frame=''> 2 -0.5 0.2 0 1.5707 0</pose>
 		</model>		
 	</world>
 </sdf>
