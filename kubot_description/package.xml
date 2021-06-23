@@ -3,7 +3,7 @@
 	<name>kubot_description</name>
 	<version>0.6.2</version>
 	<description>
-		The kubot robot description urdf, xacro and rviz package.
+		The KUBOT robot description urdf, xacro and rviz package.
 	</description>
 	<maintainer email="YunHong.Wang@ShanYangYe.com">Yun Hong</maintainer>
 

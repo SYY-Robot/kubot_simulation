@@ -18,14 +18,19 @@ It is also possible to perform simulations such as mapping and navigation withou
 # Repository Contents
  - [x]] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
    - [x] model.launch
-   - [ ] view_model.launch
+   - [x] view_model.launch
    - [ ] robot_model (urdf.xacro, gazebo)
    - [ ] lidar (urdf.xacro, gazebo)
    - [ ] camera (urdf.xacro, gazebo)
- - [ ] [kubot_gazebo](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.2-kubot_gazebo)
-   - [ ] kubot_word_example.launch
+ - [x] [kubot_gazebo](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.2-kubot_gazebo)
+   - [ ] kubot_dynamic_obstacle.launch
+   - [ ] kubot_empty_world.launch
+   - [ ] kubot_syy_field.launch
+   - [ ] kubot_view_sensor.launch
    - [ ] robot_in_my_worlds.launch
    - [ ] word (sdf)
+   - [ ] model (sdf)
+   - [ ] dynamic obstacle node (python)
 
 # Install
 
