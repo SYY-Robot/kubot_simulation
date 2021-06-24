@@ -8,19 +8,20 @@
 	<xacro:property name="base_length" value="0.675" />
 	<xacro:property name="base_width" value="0.200" />
 
-	<xacro:property name="wheel_mass" value="0.5" />
+	<xacro:property name="wheel_mass" value="2" />
 	<xacro:property name="wheel_radius" value="0.0765" />
 	<xacro:property name="wheel_length" value="0.05" />
 	<xacro:property name="wheel_joint_x" value="0" />
 	<xacro:property name="wheel_joint_y" value="0.280" />
 	<xacro:property name="wheel_joint_z" value="0.075" />
 
-	<xacro:property name="caster_mass" value="0.1" />
-	<xacro:property name="caster_radius" value="0.029" />
-	<xacro:property name="caster_length" value="0.05" />
+	<xacro:property name="caster_mass" value="1" />
+	<xacro:property name="caster_radius" value="0.03" />
+	<xacro:property name="caster_length" value="0.03" />
+	<xacro:property name="caster_width" value="0.03" />
 	<xacro:property name="caster_joint_x" value="0.268" />
 	<xacro:property name="caster_joint_y" value="0.175" />
-	<xacro:property name="caster_joint_z" value="0.028" />
+	<xacro:property name="caster_joint_z" value="0.015" />
 
 	<xacro:macro name="base">
 		<!-- Robot Frame  a.k.a base_link -->
@@ -42,8 +43,7 @@
 
 			<inertial>
 				<origin xyz=" 0 0 ${base_width/2+0.02} " rpy="0 0 0" />
-				<mass value="${base_mass}" />
-				<inertia ixx="${base_mass*(base_length*base_length+base_width*base_width)/12}" ixy="0" ixz="0" iyy="${base_mass*(base_radius*base_radius+base_width*base_width)/12}" iyz="0" izz="${base_mass*(base_radius*base_radius+base_length*base_length)/12}" />
+				<xacro:box_inertial_matrix m="${base_mass}" a="${base_radius}" b="${base_length}" c="${base_width}" />
 			</inertial>
 		</link>
 
@@ -57,15 +57,10 @@
 				<xacro:material_white />
 			</visual>
 
-			<collision>
+			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r1_frame.stl" />
-				</geometry>
-				<xacro:material_white />
-			</collision>
-
-			<xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
+				<xacro:box_inertial_matrix m="0.001" a="0.001" b="0.001" c="0.001" />
+			</inertial>
 		</link>
 
 		<!-- R2 Frame a.k.a adornment -->
@@ -86,7 +81,10 @@
 				<xacro:material_white />
 			</collision>
 
-			<xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<xacro:box_inertial_matrix m="0.001" a="0.001" b="0.001" c="0.001" />
+			</inertial>
 		</link>
 
 		<!-- R3 Frame a.k.a adornment -->
@@ -99,15 +97,10 @@
 				<xacro:material_black />
 			</visual>
 
-			<collision>
+			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r3_frame.stl" />
-				</geometry>
-				<xacro:material_white />
-			</collision>
-
-			<xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
+				<xacro:box_inertial_matrix m="0.001" a="0.001" b="0.001" c="0.001" />
+			</inertial>
 		</link>
 
 		<!-- Logo Frame a.k.a adornment -->
@@ -120,15 +113,10 @@
 				<xacro:material_white />
 			</visual>
 
-			<collision>
+			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/logo_frame.stl" />
-				</geometry>
-				<xacro:material_white />
-			</collision>
-
-			<xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
+				<xacro:box_inertial_matrix m="0.001" a="0.001" b="0.001" c="0.001" />
+			</inertial>
 		</link>
 
 		<!-- Right Wheel Frame-->
@@ -146,10 +134,12 @@
 				<geometry>
 					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
 				</geometry>
-				<xacro:material_white />
 			</collision>
 
-			<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
 		</link>
 
 		<!-- Left Wheel Frame-->
@@ -170,7 +160,10 @@
 				<xacro:material_white />
 			</collision>
 
-			<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
 		</link>
 
 		<!-- Front Right Caster Frame -->
@@ -186,11 +179,14 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<sphere radius="${caster_radius}" />
+					<box size="${caster_radius} ${caster_length} ${caster_width}" />
 				</geometry>
 			</collision>
 
-			<sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			</inertial>
 		</link>
 
 		<!-- Front Left Caster Frame -->
@@ -206,11 +202,14 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<sphere radius="${caster_radius}" />
+					<box size="${caster_radius} ${caster_length} ${caster_width}" />
 				</geometry>
 			</collision>
 
-			<sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			</inertial>
 		</link>
 
 
@@ -227,11 +226,14 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<sphere radius="${caster_radius}" />
+					<box size="${caster_radius} ${caster_length} ${caster_width}" />
 				</geometry>
 			</collision>
 
-			<sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			</inertial>
 		</link>
 
 		<!-- Rear Left Caster Frame -->
@@ -247,11 +249,14 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<sphere radius="${caster_radius}" />
+					<box size="${caster_radius} ${caster_length} ${caster_width}" />
 				</geometry>
 			</collision>
 
-			<sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+			</inertial>
 		</link>
 
 		<!-- Define Joint -->
@@ -278,14 +283,14 @@
 		<joint name="wheel_right_joint" type="continuous">
 			<parent link="base_link" />
 			<child link="wheel_right_link" />
-			<origin xyz="0.0 ${-1*wheel_joint_y} ${wheel_joint_z}" rpy="0 0 ${M_PI}" />
+			<origin xyz="${wheel_joint_x} ${-1*wheel_joint_y} ${wheel_joint_z}" rpy="0 0 ${M_PI}" />
 			<axis xyz="0 -1 0" />
 		</joint>
 
 		<joint name="wheel_left_joint" type="continuous">
 			<parent link="base_link" />
 			<child link="wheel_left_link" />
-			<origin xyz="0.0 ${wheel_joint_y} ${wheel_joint_z}" rpy="0 0 0" />
+			<origin xyz="${wheel_joint_x} ${wheel_joint_y} ${wheel_joint_z}" rpy="0 0 0" />
 			<axis xyz="0 1 0" />
 		</joint>
 
@@ -363,7 +368,6 @@
 			<kd>100.0</kd>
 			<minDepth>0</minDepth>
 			<maxVel>0.01</maxVel>
-			<fdir1>0 1 0</fdir1>
 			<material>Gazebo/Red</material>
 		</gazebo>
 
@@ -374,7 +378,6 @@
 			<kd>100.0</kd>
 			<minDepth>0</minDepth>
 			<maxVel>0.01</maxVel>
-			<fdir1>0 1 0</fdir1>
 			<material>Gazebo/Red</material>
 		</gazebo>
 
@@ -385,7 +388,6 @@
 			<kd>100.0</kd>
 			<minDepth>0</minDepth>
 			<maxVel>0.01</maxVel>
-			<fdir1>0 1 0</fdir1>
 			<material>Gazebo/Red</material>
 		</gazebo>
 
@@ -396,7 +398,6 @@
 			<kd>100.0</kd>
 			<minDepth>0</minDepth>
 			<maxVel>0.01</maxVel>
-			<fdir1>0 1 0</fdir1>
 			<material>Gazebo/Red</material>
 		</gazebo>
 

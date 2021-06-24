@@ -148,7 +148,7 @@
                 </geometry>
             </collision>
 
-            <sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+            <xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
         </link>
 
         <!-- Front Left Caster Frame -->
@@ -168,7 +168,7 @@
                 </geometry>
             </collision>
 
-            <sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+            <xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
         </link>
 
 
@@ -189,7 +189,7 @@
                 </geometry>
             </collision>
 
-            <sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+            <xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
         </link>
 
         <!-- Rear Left Caster Frame -->
@@ -209,7 +209,7 @@
                 </geometry>
             </collision>
 
-            <sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
+            <xacro:sphere_inertial_matrix m="${caster_mass}" r="${caster_radius}" />
         </link>
 
         <!-- Define Joint -->
