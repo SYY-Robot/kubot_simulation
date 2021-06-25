@@ -78,6 +78,14 @@
 			<include>
 				<uri>model://Apriltag/Apriltag36_11_00000</uri>
 			</include>
+			<pose frame=''> 2 0 0.2 0 1.5707 0</pose>
+		</model>		
+
+		<model name="markers_0">
+			<static>1</static>
+			<include>
+				<uri>model://Artag/Artag_markers_0</uri>
+			</include>
 			<pose frame=''> 2 -0.5 0.2 0 1.5707 0</pose>
 		</model>		
 	</world>
