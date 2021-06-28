@@ -59,19 +59,21 @@
 		<!-- Define Gazebo -->
 		<gazebo reference="${frame}">
 			<material>Gazebo/Grey</material>
-<!--
+
 			<sensor type="camera" name="rgb_camera">
 				<update_rate>30.0</update_rate>
-				<camera name="head">
-					<horizontal_fov>1.047</horizontal_fov>
+				<always_on>1</always_on>
+				<visualize>1</visualize>
+				<camera name="d435i_rgb_camera">
+					<horizontal_fov>1.3962634</horizontal_fov>
 					<image>
 						<width>1280</width>
 						<height>720</height>
 						<format>R8G8B8</format>
 					</image>
 					<clip>
-						<near>0.01</near>
-						<far>100</far>
+						<near>0.02</near>
+						<far>300</far>
 					</clip>
 					<noise>
 						<type>gaussian</type>
@@ -79,14 +81,14 @@
 						<stddev>0.007</stddev>
 					</noise>
 				</camera>
-				<plugin name="d435i_camera_controller" filename="libgazebo_ros_camera.so">
+				<plugin name="d435i_rgb_camera_controller" filename="libgazebo_ros_camera.so">
 					<alwaysOn>true</alwaysOn>
 					<updateRate>0.0</updateRate>
-					<cameraName>kubot/camera1</cameraName>
+					<cameraName>kubot/camera_color_frame</cameraName>
 					<imageTopicName>image_raw</imageTopicName>
 					<cameraInfoTopicName>camera_info</cameraInfoTopicName>
-					<frameName>camera_link_optical</frameName>
-					<hackBaseline>0.0</hackBaseline>
+					<frameName>camera_color_optical_frame</frameName>
+					<hackBaseline>0.07</hackBaseline>
 					<distortionK1>0.0</distortionK1>
 					<distortionK2>0.0</distortionK2>
 					<distortionK3>0.0</distortionK3>
@@ -98,11 +100,12 @@
 					<focalLength>0.0</focalLength>
 				</plugin>
 			</sensor>
--->
-			<sensor name="depth_camera" type="depth">
+			
+			<sensor type="depth" name="depth_camera">
 				<update_rate>20</update_rate>
 				<always_on>1</always_on>
-				<camera>
+				<visualize>1</visualize>
+				<camera name="d435i_depth_camera">
 					<horizontal_fov>1.047198</horizontal_fov>
 					<image>
 						<width>640</width>
@@ -114,7 +117,7 @@
 						<far>3</far>
 					</clip>
 				</camera>
-				<plugin name="d435i_controller" filename="libgazebo_ros_openni_kinect.so">
+				<plugin name="d435i_depth_controller" filename="libgazebo_ros_openni_kinect.so">
 					<baseline>0.2</baseline>
 					<alwaysOn>true</alwaysOn>
 					<updateRate>1.0</updateRate>
@@ -137,7 +140,8 @@
 					<hackBaseline>0</hackBaseline>
 				</plugin>
 			</sensor>
-
 		</gazebo>
+
 	</xacro:macro>
+
 </robot>
