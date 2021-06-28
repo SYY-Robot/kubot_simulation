@@ -38,6 +38,24 @@
 			<child link="${frame}" />
 		</joint>
 
+		<!-- Image Frame-->
+		<link name="camera_color_optical_frame"/>
+
+		<joint name="camera_color_optical_joint" type="fixed">
+			<parent link="${frame}"/>
+			<child link="camera_color_optical_frame"/>
+			<origin xyz="0 0 0" rpy="-1.5707 0 -1.5707" />
+		</joint>
+
+		<!-- Depth image Frame-->
+		<link name="camera_depth_optical_frame"/>
+
+		<joint name="camera_depth_optical_joint" type="fixed">
+			<parent link="${frame}"/>
+			<child link="camera_depth_optical_frame"/>
+			<origin xyz="0 0 0" rpy="-1.5707 0 -1.5707" />
+		</joint>
+
 		<!-- Define Gazebo -->
 		<gazebo reference="${frame}">
 			<material>Gazebo/Grey</material>
@@ -100,13 +118,11 @@
 					<baseline>0.2</baseline>
 					<alwaysOn>true</alwaysOn>
 					<updateRate>1.0</updateRate>
-					<cameraName>kubot/camera_depth</cameraName>
-					<imageTopicName>/kubot/color/image_raw</imageTopicName>
-					<cameraInfoTopicName>/camera1/color/camera_info</cameraInfoTopicName>
-					<depthImageTopicName>/camera1/depth/image_raw</depthImageTopicName>
-					<depthImageInfoTopicName>/camera1/depth/camera_info</depthImageInfoTopicName>
-					<pointCloudTopicName>/camera1/depth/points</pointCloudTopicName>
-					<frameName>${frame}</frameName>
+					<cameraName>kubot/camera_depth_frame</cameraName>
+					<depthImageTopicName>/depth/image_raw</depthImageTopicName>
+					<depthImageInfoTopicName>/depth/camera_info</depthImageInfoTopicName>
+					<pointCloudTopicName>/depth/points</pointCloudTopicName>
+					<frameName>camera_depth_optical_frame</frameName>
 					<pointCloudCutoff>0.5</pointCloudCutoff>
 					<pointCloudCutoffMax>3.0</pointCloudCutoffMax>
 					<distortionK1>0.00000001</distortionK1>
