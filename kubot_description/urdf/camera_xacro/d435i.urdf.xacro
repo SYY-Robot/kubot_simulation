@@ -72,8 +72,8 @@
 						<format>R8G8B8</format>
 					</image>
 					<clip>
-						<near>0.02</near>
-						<far>300</far>
+						<near>0.05</near>
+						<far>3</far>
 					</clip>
 					<noise>
 						<type>gaussian</type>
@@ -83,7 +83,7 @@
 				</camera>
 				<plugin name="d435i_rgb_camera_controller" filename="libgazebo_ros_camera.so">
 					<alwaysOn>true</alwaysOn>
-					<updateRate>0.0</updateRate>
+					<updateRate>1.0</updateRate>
 					<cameraName>kubot/camera_color_frame</cameraName>
 					<imageTopicName>image_raw</imageTopicName>
 					<cameraInfoTopicName>camera_info</cameraInfoTopicName>
