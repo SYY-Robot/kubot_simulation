@@ -16,21 +16,21 @@ Start the KUBOT Robot Coordinate conversion([TF](http://wiki.ros.org/tf)), Visua
 It is also possible to perform simulations such as mapping and navigation without real robots.
 
 # Repository Contents
- - [x]] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
+ - [x] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
    - [x] model.launch
    - [x] view_model.launch
-   - [ ] robot_model (urdf.xacro, gazebo)
-   - [ ] lidar (urdf.xacro, gazebo)
-   - [ ] camera (urdf.xacro, gazebo)
+   - [x] robot_model (urdf.xacro, gazebo)
+   - [x] lidar (urdf.xacro, gazebo)
+   - [x] camera (urdf.xacro, gazebo)
  - [x] [kubot_gazebo](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.2-kubot_gazebo)
-   - [ ] kubot_dynamic_obstacle.launch
-   - [ ] kubot_empty_world.launch
-   - [ ] kubot_syy_field.launch
-   - [ ] kubot_view_sensor.launch
-   - [ ] robot_in_my_worlds.launch
-   - [ ] word (sdf)
-   - [ ] model (sdf)
-   - [ ] dynamic obstacle node (python)
+   - [x] dynamic_obstacle.launch
+   - [x] empty_world.launch
+   - [x] kubot_syy_field.launch
+   - [x] view_sensor.launch
+   - [x] robot_in_my_worlds.launch
+   - [x] word (sdf)
+   - [x] model (sdf)
+   - [x] dynamic obstacle node (python)
 
 # Install
 
