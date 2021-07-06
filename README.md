@@ -19,15 +19,15 @@ It is also possible to perform simulations such as mapping and navigation withou
  - [x]] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
    - [x] model.launch
    - [x] view_model.launch
-   - [ ] robot_model (urdf.xacro, gazebo)
-   - [ ] lidar (urdf.xacro, gazebo)
-   - [ ] camera (urdf.xacro, gazebo)
+   - [x] robot_model (urdf.xacro, gazebo)
+   - [x] lidar (urdf.xacro, gazebo)
+   - [x] camera (urdf.xacro, gazebo)
 
 # Install
 
 ```sh
 cd ~/kubot_ros/ros_ws/src
-git clone https://github.com/KUBOT-Robot/kubot_simulation.git
+git clone https://github.com/KUBOT-Robot/kubot_simulation.git -b kinetic-devel
 cd ..
 catkin_make
 source ~/.bashrc
