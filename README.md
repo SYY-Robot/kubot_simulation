@@ -36,7 +36,7 @@ It is also possible to perform simulations such as mapping and navigation withou
 
 ```sh
 cd ~/kubot_ros/ros_ws/src
-git clone https://github.com/KUBOT-Robot/kubot_simulation.git
+git clone https://github.com/KUBOT-Robot/kubot_simulation.git -b melodic-devel
 cd ..
 catkin_make
 source ~/.bashrc
