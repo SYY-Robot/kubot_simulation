@@ -16,7 +16,7 @@ Start the KUBOT Robot Coordinate conversion([TF](http://wiki.ros.org/tf)), Visua
 It is also possible to perform simulations such as mapping and navigation without real robots.
 
 # Repository Contents
- - [x]] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
+ - [x] [kubot_description](https://github.com/KUBOT-Robot/kubot_ros/wiki/3.1-kubot_model)
    - [x] model.launch
    - [x] view_model.launch
    - [x] robot_model (urdf.xacro, gazebo)
