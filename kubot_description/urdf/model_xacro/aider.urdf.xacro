@@ -4,21 +4,21 @@
     <xacro:include filename="$(find kubot_description)/urdf/kubot_properties.urdf.xacro" />
 
     <xacro:property name="base_mass" value="80" />
-    <xacro:property name="base_radius" value="0.793" />
-    <xacro:property name="base_length" value="0.530" />
-    <xacro:property name="base_width" value="0.165" />
+    <xacro:property name="base_radius" value="0.840" />
+    <xacro:property name="base_length" value="0.580" />
+    <xacro:property name="base_width" value="0.14" />
 
     <xacro:property name="wheel_mass" value="0.5" />
     <xacro:property name="wheel_radius" value="0.0765" />
     <xacro:property name="wheel_length" value="0.05" />
     <xacro:property name="wheel_joint_x" value="0" />
-    <xacro:property name="wheel_joint_y" value="0.220" />
+    <xacro:property name="wheel_joint_y" value="0.217" />
     <xacro:property name="wheel_joint_z" value="0.075" />
 
     <xacro:property name="caster_mass" value="0.1" />
     <xacro:property name="caster_radius" value="0.029" />
     <xacro:property name="caster_length" value="0.05" />
-    <xacro:property name="caster_joint_x" value="0.268" />
+    <xacro:property name="caster_joint_x" value="0.2473" />
     <xacro:property name="caster_joint_y" value="0.175" />
     <xacro:property name="caster_joint_z" value="0.028" />
 
@@ -56,15 +56,6 @@
                 </geometry>
                 <xacro:material_dark_blue />
             </visual>
-
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r1_frame.stl" scale="0.001 0.001 0.001" />
-                </geometry>
-            </collision>
-
-            <xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
         </link>
 
         <!-- R2 Frame a.k.a adornment -->
@@ -76,15 +67,6 @@
                 </geometry>
                 <xacro:material_black />
             </visual>
-
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r2_frame.stl" scale="0.001 0.001 0.001" />
-                </geometry>
-            </collision>
-
-            <xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
         </link>
 
         <!-- R3 Frame a.k.a adornment -->
@@ -96,15 +78,6 @@
                 </geometry>
                 <xacro:material_yellow />
             </visual>
-
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <mesh filename="package://kubot_description/meshes/robot_frame/$(arg model)/r3_frame.stl" scale="0.001 0.001 0.001" />
-                </geometry>
-            </collision>
-
-            <xacro:box_inertial_matrix m="0" a="0" b="0" c="0" />
         </link>
 
         <!-- Right Wheel Frame-->
@@ -125,7 +98,10 @@
                 <xacro:material_white />
             </collision>
 
-            <xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			<inertial>
+				<origin xyz="0 ${-1*wheel_length/2} 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
         </link>
 
         <!-- Left Wheel Frame-->
@@ -146,7 +122,10 @@
                 <xacro:material_white />
             </collision>
 
-            <xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			<inertial>
+				<origin xyz="0 ${-1*wheel_length/2} 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
         </link>
 
         <!-- Front Right Caster Frame -->
