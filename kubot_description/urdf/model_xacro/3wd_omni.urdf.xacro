@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<robot name="kubot_robot"
+	xmlns:xacro="https://ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find kubot_description)/urdf/kubot_properties.urdf.xacro" />
+
+	<xacro:property name="base_mass" value="4.2" />
+	<xacro:property name="base_radius" value="0.14" />
+	<xacro:property name="base_length" value="0.14" />
+	<xacro:property name="base_width" value="0" />
+
+	<xacro:property name="wheel_mass" value="0.1" />
+	<xacro:property name="wheel_radius" value="0.027" />
+	<xacro:property name="wheel_length" value="0.022" />
+	<xacro:property name="wheel_width" value="0.0" />
+	<xacro:property name="wheel_joint_x" value="0.0725" />
+	<xacro:property name="wheel_joint_y" value="0.1255" />
+	<xacro:property name="wheel_joint_z" value="0.02" />
+
+	<xacro:property name="caster_mass" value="0.05" />
+	<xacro:property name="caster_radius" value="0.0" />
+	<xacro:property name="caster_length" value="0.0" />
+	<xacro:property name="caster_width" value="0.0" />
+	<xacro:property name="caster_joint_x" value="0.0" />
+	<xacro:property name="caster_joint_y" value="0.0" />
+	<xacro:property name="caster_joint_z" value="0.0" />
+
+	<xacro:macro name="base">
+		<!-- Robot Frame  a.k.a base_link -->
+		<link name="base_link">
+			<visual>
+				<origin xyz="0 0 ${base_length/2+0.02}" rpy="0 0 0" />
+				<geometry>"
+					<cylinder length="${base_length}" radius="${base_radius}" />
+				</geometry>
+				<xacro:material_orange />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 ${base_length/2+0.02}" rpy="0 0 0" />
+				<geometry>
+					<cylinder length="${base_length}" radius="${base_radius}" />
+				</geometry>
+			</collision>
+
+			<inertial>
+				<origin xyz="0 0 ${base_length/2+0.02} " rpy="0 0 0" />
+				<xacro:cylinder_inertial_matrix m="${base_mass}" r="${base_radius}" h="${base_length}" />
+			</inertial>
+		</link>
+
+		<!-- Front Right Wheel Frame-->
+		<link name="wheel_front_right_link">
+			<visual>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<geometry>
+					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
+				</geometry>
+				<xacro:material_black />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<geometry>
+					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
+				</geometry>
+			</collision>
+
+			<inertial>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
+		</link>
+
+		<!-- Front Left Wheel Frame-->
+		<link name="wheel_front_left_link">
+			<visual>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<geometry>
+					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
+				</geometry>
+				<xacro:material_black />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<geometry>
+					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
+				</geometry>
+			</collision>
+
+			<inertial>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
+		</link>
+
+		<!-- Back Wheel Frame-->
+		<link name="wheel_back_link">
+			<visual>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<geometry>
+					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
+				</geometry>
+				<xacro:material_black />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<geometry>
+					<cylinder length="${wheel_length}" radius="${wheel_radius}" />
+				</geometry>
+			</collision>
+
+			<inertial>
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+				<xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+			</inertial>
+		</link>
+
+		<!-- Define Joint -->
+		<joint name="wheel_front_right_joint" type="continuous">
+			<parent link="base_link" />
+			<child link="wheel_front_right_link" />
+			<origin xyz="${wheel_joint_x} ${-1*wheel_joint_y} ${wheel_joint_z}" rpy="0 0 ${M_PI*7/6}" />
+			<axis xyz="0 -1 0" />
+		</joint>
+
+		<joint name="wheel_front_left_joint" type="continuous">
+			<parent link="base_link" />
+			<child link="wheel_front_left_link" />
+			<origin xyz="${wheel_joint_x} ${wheel_joint_y} ${wheel_joint_z}" rpy="0 0 ${-1*M_PI/6}" />
+			<axis xyz="0 -1 0" />
+		</joint>
+
+		<joint name="wheel_back_joint" type="continuous">
+			<parent link="base_link" />
+			<child link="wheel_back_link" />
+			<origin xyz="-0.145 0 ${wheel_joint_z}" rpy="0 0 ${M_PI/2}" />
+			<axis xyz="0 -1 0" />
+		</joint>
+
+		<!-- Define Gazebo -->
+		<gazebo reference="base_link">
+			<material>Gazebo/Blue</material>
+		</gazebo>
+
+		<gazebo reference="wheel_front_right_link">
+			<mu1 value="1.0"/>
+			<mu2 value="1.0"/>
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<fdir1 value="1 0 0"/>
+			<turnGravityOff>false</turnGravityOff>
+			<material>Gazebo/Black</material>
+		</gazebo>
+
+		<gazebo reference="wheel_front_left_link">
+			<mu1 value="1.0"/>
+			<mu2 value="1.0"/>
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<fdir1 value="1 0 0"/>
+			<turnGravityOff>false</turnGravityOff>
+			<material>Gazebo/Black</material>
+		</gazebo>
+
+		<gazebo reference="wheel_back_joint">
+			<mu1>100000</mu1>
+			<mu1 value="1.0"/>
+			<mu2 value="1.0"/>
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<fdir1 value="1 0 0"/>
+			<turnGravityOff>false</turnGravityOff>
+			<material>Gazebo/Black</material>
+		</gazebo>
+
+		<gazebo>
+			<plugin name="omni_drive_controller" filename="libgazebo_ros_planar_move.so">
+				<commandTopic>cmd_vel</commandTopic>
+				<odometryTopic>odom</odometryTopic>
+				<odometryFrame>odom</odometryFrame>
+				<odometryRate>50.0</odometryRate>
+				<robotBaseFrame>footprint</robotBaseFrame>
+				<publishTF>true</publishTF>
+			</plugin>
+		</gazebo>
+
+		<gazebo>
+			<plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>30.0</updateRate>
+				<bodyName>base_link</bodyName>
+				<topicName>ground_truth/state</topicName>
+				<gaussianNoise>0.01</gaussianNoise>
+				<frameName>world</frameName>
+				<xyzOffsets>0 0 0</xyzOffsets>
+				<rpyOffsets>0 0 0</rpyOffsets>
+			</plugin>
+		</gazebo>
+
+	</xacro:macro>
+
+	<!-- Lidar Frame a.k.a Lidar Pos-->
+	<xacro:property name="lidar_joint_xyz" value="0 0 0.185" />
+	<xacro:property name="lidar_joint_rpy" value="0 0 0" />
+
+	<!-- Camera a.k.a Camera Pos -->
+	<xacro:property name="camera_joint_xyz" value="0.1 0 0.14" />
+	<xacro:property name="camera_joint_rpy" value="0 0 0" />
+
+</robot>
