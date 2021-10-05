@@ -383,7 +383,7 @@
     <xacro:property name="lidar_joint_rpy" value="0 0 0" />
 
     <!-- Camera a.k.a Camera Pos -->
-    <xacro:property name="camera_joint_xyz" value="0.38 0 0.08" />
-    <xacro:property name="camera_joint_rpy" value="0 0 0" />
+    <xacro:property name="camera_joint_xyz" value="-0.39 0 0.235" />
+    <xacro:property name="camera_joint_rpy" value="0 0 3.14" />
 
 </robot>
