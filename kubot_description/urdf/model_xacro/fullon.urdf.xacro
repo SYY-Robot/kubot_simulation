@@ -13,7 +13,7 @@
 	<xacro:property name="wheel_radius" value="0.075" />
 	<xacro:property name="wheel_length" value="0.050" />
 	<xacro:property name="wheel_width" value="0.0" />
-	<xacro:property name="wheel_joint_x" value="0.080" />
+	<xacro:property name="wheel_joint_x" value="0.0" />
 	<xacro:property name="wheel_joint_y" value="0.245" />
 	<xacro:property name="wheel_joint_z" value="0.075" />
 
@@ -21,7 +21,7 @@
 	<xacro:property name="caster_radius" value="0.05" />
 	<xacro:property name="caster_length" value="0.02" />
 	<xacro:property name="caster_width" value="0.05" />
-	<xacro:property name="caster_joint_x" value="0.170" />
+	<xacro:property name="caster_joint_x" value="0.25" />
 	<xacro:property name="caster_joint_y" value="0.0" />
 	<xacro:property name="caster_joint_z" value="0.025" />
 
@@ -29,7 +29,7 @@
 		<!-- Robot Frame  a.k.a base_link -->
 		<link name="base_link">
 			<visual>
-				<origin xyz="0 0 ${base_length/2+0.04}" rpy="0 0 0" />
+				<origin xyz="-0.08 0 ${base_length/2+0.04}" rpy="0 0 0" />
 				<geometry>
 					<cylinder length="${base_length}" radius="${base_radius}" />
 				</geometry>
@@ -37,14 +37,14 @@
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 ${base_length/2+0.04}" rpy="0 0 0" />
+				<origin xyz="-0.08 0 ${base_length/2+0.04}" rpy="0 0 0" />
 				<geometry>
 					<cylinder length="${base_length}" radius="${base_radius}" />
 				</geometry>
 			</collision>
 
 			<inertial>
-				<origin xyz="0 0 ${base_length/2+0.04}" rpy="0 0 0" />
+				<origin xyz="-0.08 0 ${base_length/2+0.04}" rpy="0 0 0" />
 				<xacro:cylinder_inertial_matrix m="${base_mass}" r="${base_radius}" h="${base_length}" />
 			</inertial>
 		</link>
@@ -212,7 +212,7 @@
 	</xacro:macro>
 
 	<!-- Lidar Frame a.k.a Lidar Pos-->
-	<xacro:property name="lidar_joint_xyz" value="0.19 0 0.42" />
+	<xacro:property name="lidar_joint_xyz" value="0.11 0 0.42" />
 	<xacro:property name="lidar_joint_rpy" value="0 0 0" />
 
 	<!-- Camera a.k.a Camera Pos -->
