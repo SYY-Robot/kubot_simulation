@@ -88,13 +88,13 @@
 		</joint>
 
 		<joint name="lidar1_joint" type="fixed">
-			<origin xyz="0.358 0.225 0.197" rpy="0 0 3.92699" />
+			<origin xyz="0.359 0.23 0.197" rpy="0 0 3.92699" />
 			<parent link="base_link" />
 			<child link="lidar1_link" />
 		</joint>
 
 		<joint name="lidar2_joint" type="fixed">
-			<origin xyz="-0.358 -0.225 0.197" rpy="0 0 -5.4966" />
+			<origin xyz="-0.359 -0.23 0.197" rpy="0 0 -5.4966" />
 			<parent link="base_link" />
 			<child link="lidar2_link" />
 		</joint>
