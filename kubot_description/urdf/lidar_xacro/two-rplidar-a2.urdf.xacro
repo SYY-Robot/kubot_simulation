@@ -43,7 +43,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<cylinder length="0.0415" radius="0.035" />
+					<cylinder length="0.0315" radius="0.035" />
 				</geometry>
 				<xacro:material_white />
 			</collision>
@@ -68,7 +68,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<cylinder length="0.0415" radius="0.035" />
+					<cylinder length="0.0315" radius="0.035" />
 				</geometry>
 				<xacro:material_white />
 			</collision>
@@ -88,14 +88,14 @@
 		</joint>
 
 		<joint name="lidar1_joint" type="fixed">
-			<origin xyz="0.359 0.23 0.197" rpy="0 0 3.92699" />
-			<parent link="base_link" />
+			<origin xyz="0.357 0.233 -0.04" rpy="0 0 3.926990" />
+			<parent link="${frame}" />
 			<child link="lidar1_link" />
 		</joint>
 
 		<joint name="lidar2_joint" type="fixed">
-			<origin xyz="-0.359 -0.23 0.197" rpy="0 0 -5.4966" />
-			<parent link="base_link" />
+			<origin xyz="-0.357 -0.233 -0.04" rpy="0 0 0.785398" />
+			<parent link="${frame}" />
 			<child link="lidar2_link" />
 		</joint>
 
