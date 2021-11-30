@@ -22,4 +22,7 @@
 	<group if="$(arg open_rviz)">
 		<node name="rviz" pkg="rviz" type="rviz" args="-d $(find kubot_description)/rviz/urdf.rviz" />
 	</group>
+
+	<!-- For Movel AI test -->
+	<node pkg="tf" type="static_transform_publisher" name="laser_link_to_laser" args="0.0 0.0 0.0 0 0 0 laser_link laser 100" />
 </launch>
