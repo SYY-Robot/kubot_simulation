@@ -47,6 +47,27 @@
 		<param name="rate" value="20.0" />
 	</node>
 
+	<!-- AIDER Robot ira scan mix -->
+	<group if="$(eval arg ('model') == 'aider')"> 
+		<include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+			<arg name="time" value="2" />
+			<arg name="pkg" value="kubot_lidar" />
+			<arg name="file" value="ira_lidar_example.launch" />
+			<arg name="value" value="arg1:=1.2" />
+		</include>
+	</group>
+
+	<!-- For Movel AI test -->
+	<node pkg="tf" type="static_transform_publisher" name="laser_link_to_laser" args="0.0 0.0 0.0 0 0 0 laser_link laser 100" />
+
+	<!-- laser filter -->
+	<include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+		<arg name="time" value="4" />
+		<arg name="pkg" value="kubot_lidar" />
+		<arg name="file" value="lidar_filter.launch" />
+		<arg name="value" value="arg1:=1.2" />
+	</include>
+
 	<!-- Arguments of the initial position -->
 	<arg name="x_pos" default="0.0" />
 	<arg name="y_pos" default="0.0" />
