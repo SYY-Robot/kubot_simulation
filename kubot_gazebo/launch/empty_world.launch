@@ -47,8 +47,8 @@
 		<param name="rate" value="20.0" />
 	</node>
 
-	<!-- AIDER Robot ira scan mix -->
-	<group if="$(eval arg ('model') == 'aider')"> 
+	<!-- two lidar need ira scan mix -->
+	<group if="$(eval arg ('lidar') == 'two-rplidar-a2')"> 
 		<include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
 			<arg name="time" value="2" />
 			<arg name="pkg" value="kubot_lidar" />
@@ -57,8 +57,9 @@
 		</include>
 	</group>
 
-	<!-- For Movel AI test -->
+	<!-- For Movel AI test 
 	<node pkg="tf" type="static_transform_publisher" name="laser_link_to_laser" args="0.0 0.0 0.0 0 0 0 laser_link laser 100" />
+-->
 
 	<!-- laser filter -->
 	<include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
